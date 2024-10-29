@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot_detection_log(log_file='../detection_log.csv'):
+def plot_detection_log(log_file='detection_log.csv'):
     df = pd.read_csv(log_file)
     df['date'] = pd.to_datetime(df['date'])
     df.plot(x='date', y='detections', kind='line')
