@@ -1,6 +1,6 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
+train: /content/drive/MyDrive/dataset/train/images
+val: /content/drive/MyDrive/dataset/valid/images
+test: /content/drive/MyDrive/dataset/test/images
 
 nc: 5
 names: ['Ambulance', 'Bus', 'Car', 'Motorcycle', 'Truck']
