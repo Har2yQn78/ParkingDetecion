@@ -39,7 +39,7 @@ To train the YOLOv8 model with your custom dataset, follow these steps:
 2. Update the `data.yaml` file to point to your dataset paths.
 3. Run the training script:
     ```bash
-    python src/train.py
+    python src/main.py
     ```
 
 ### Detection
@@ -71,9 +71,8 @@ ParkingDetection/
 │       └── ...
 ├── src/
 │   ├── detect.py
-│   ├── log_data.py
+│   ├── logger.py
 │   ├── visualize.py
-│   ├── utils.py
 ├── models/
 │   └── yolov8_trained_model.pt
 ├── detection_log.csv
@@ -88,7 +87,7 @@ ParkingDetection/
 This script trains the YOLOv8 model on your custom dataset. Ensure your dataset is structured correctly and the `data.yaml` file is properly configured. To train the model, run:
 
 ```bash
-python src/train.py
+python src/main.py
 ```
 
 ## Detection
