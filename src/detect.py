@@ -1,9 +1,13 @@
 from ultralytics import YOLO
 import cv2
 import os
+from logger import init_log_file, log_detection
 
 
-def process_images(model_path, image_folder, output_folder):
+def process_images(model_path, image_folder, output_folder, log_file):
+    # Initialize the log file
+    init_log_file(log_file)
+
     # Load the YOLO model
     model = YOLO(model_path)
 
@@ -36,6 +40,8 @@ def process_images(model_path, image_folder, output_folder):
                               2)
                 car_count += 1
 
+        log_detection(car_count, log_file)
+
         cv2.putText(image, f'Cars: {car_count}',
                     (20, 40),
                     cv2.FONT_HERSHEY_SIMPLEX,
@@ -53,9 +59,9 @@ def process_images(model_path, image_folder, output_folder):
 
 
 if __name__ == "__main__":
-
     MODEL_PATH = r"\models\best.pt"
-    IMAGE_FOLDER = r"\train\images"
-    OUTPUT_FOLDER = r"detection_log.csv"
+    IMAGE_FOLDER = r"\parking pic"
+    OUTPUT_FOLDER = r"\Parking Detecion Project\output"
+    LOG_FILE = r"\detection_log.csv"
 
-    process_images(MODEL_PATH, IMAGE_FOLDER, OUTPUT_FOLDER)
+    process_images(MODEL_PATH, IMAGE_FOLDER, OUTPUT_FOLDER, LOG_FILE)
